@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selva Fusión - Tragos Exóticos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<a href="https://api.whatsapp.com/send?phone=51987654321&text=Hola%2C%20vengo%20de%20la%20página%20web%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n." class="whatsapp-flotante" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+<body>
+
+    <header class="header">
+        <a href="#" class="logo">
+            <i class="fas fa-leaf"></i> Tragos La Shofi
+        </a>
+        <nav class="navbar">
+            <a href="#inicio">Inicio</a>
+            <a href="#productos">Productos</a>
+            <a href="#sobre-mi">Elaboración</a>
+        </nav>
+        <div class="icons">
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+        </div>
+        <div class="cart-items-container">
+            <div id="cart-close-btn" class="fas fa-times"></div>
+            <div id="cart-items"></div>
+            <a href="#" id="checkout-btn" class="btn">Pagar Ahora</a>
+        </div>
+    </header>
+
+    <section class="home" id="inicio">
+        <div class="content">
+            <h3>
+                <span style="animation-delay: 0.1s">S</span><span style="animation-delay: 0.15s">A</span><span
+                    style="animation-delay: 0.2s">B</span><span style="animation-delay: 0.25s">O</span><span
+                    style="animation-delay: 0.3s">R</span><span style="animation-delay: 0.35s">E</span><span
+                    style="animation-delay: 0.4s">S</span>
+                <br>
+                <span style="animation-delay: 0.5s">Q</span><span style="animation-delay: 0.55s">U</span><span
+                    style="animation-delay: 0.6s">E</span>
+                <br>
+                <span style="animation-delay: 0.7s">N</span><span style="animation-delay: 0.75s">A</span><span
+                    style="animation-delay: 0.8s">C</span><span style="animation-delay: 0.85s">E</span><span
+                    style="animation-delay: 0.9s">N</span>
+                <br>
+                <span style="animation-delay: 1s">D</span><span style="animation-delay: 1.05s">E</span><span
+                    style="animation-delay: 1.1s">L</span><span style="animation-delay: 1.15s">&nbsp;</span><span
+                    style="animation-delay: 1.2s">C</span><span style="animation-delay: 1.25s">O</span><span
+                    style="animation-delay: 1.3s">R</span><span style="animation-delay: 1.35s">A</span><span
+                    style="animation-delay: 1.4s">Z</span><span style="animation-delay: 1.45s">Ó</span><span
+                    style="animation-delay: 1.5s">N</span>
+                <br>
+                <span style="animation-delay: 1.6s">D</span><span style="animation-delay: 1.65s">E</span><span
+                    style="animation-delay: 1.7s">&nbsp;</span><span style="animation-delay: 1.75s">L</span><span
+                    style="animation-delay: 1.8s">A</span>
+                <br>
+                <span style="animation-delay: 1.9s">S</span><span style="animation-delay: 1.95s">E</span><span
+                    style="animation-delay: 2s">L</span><span style="animation-delay: 2.05s">V</span><span
+                    style="animation-delay: 2.1s">A</span>
+            </h3>
+            <p>Descubre la magia de selva en cada botella. Tragos exóticos elaborados con tradición y pasión.</p>
+            <a href="#productos" class="btn">Explorar Tragos</a>
+        </div>
+    </section>
+
+    <section class="products" id="productos">
+        <h1 class="heading">Nuestros <span>Tragos</span></h1>
+        <div class="box-container">
+            <div class="box" data-name="Indanachado" data-price="50">
+                <div class="image">
+                    <img src="img/indanachado.jpg" alt="Indanachado">
+                </div>
+                <div class="content">
+                    <h3>Indanachado</h3>
+                    <div class="price-info">
+                        <div class="price">S/ 50.00 <span>(Unidad)</span></div>
+                        <div class="price-offer">S/ 45.00 <span>(A partir de 3)</span></div>
+                    </div>
+                    <button class="btn add-to-cart">Agregar al Carrito</button>
+                </div>
+            </div>
+            <div class="box" data-name="Uvachado" data-price="45">
+                <div class="image">
+                    <img src="img/uvachado.jpg" alt="Uvachado">
+                </div>
+                <div class="content">
+                    <h3>Uvachado</h3>
+                    <div class="price-info">
+                        <div class="price">S/ 45.00 <span>(Unidad)</span></div>
+                        <div class="price-offer">S/ 40.00 <span>(A partir de 3)</span></div>
+                    </div>
+                    <button class="btn add-to-cart">Agregar al Carrito</button>
+                </div>
+            </div>
+            <div class="box" data-name="Cocachado" data-price="48">
+                <div class="image">
+                    <img src="img/cocachado.jpg" alt="Cocachado">
+                </div>
+                <div class="content">
+                    <h3>Cocachado</h3>
+                    <div class="price-info">
+                        <div class="price">S/ 48.00 <span>(Unidad)</span></div>
+                        <div class="price-offer">S/ 43.00 <span>(A partir de 3)</span></div>
+                    </div>
+                    <button class="btn add-to-cart">Agregar al Carrito</button>
+                </div>
+            </div>
+            <div class="box" data-name="Vino Regional" data-price="35">
+                <div class="image">
+                    <img src="img/vino_regional.jpg" alt="Vino Regional">
+                </div>
+                <div class="content">
+                    <h3>Vino Regional</h3>
+                    <div class="price-info">
+                        <div class="price">S/ 35.00 <span>(Unidad)</span></div>
+                        <div class="price-offer">S/ 30.00 <span>(A partir de 3)</span></div>
+                    </div>
+                    <button class="btn add-to-cart">Agregar al Carrito</button>
+                </div>
+            </div>
+            <div class="box" data-name="Jengibrechado" data-price="55">
+                <div class="image">
+                    <img src="img/jengibrechado.jpg" alt="Jengibrechado">
+                </div>
+                <div class="content">
+                    <h3>Jengibrechado (Kionchado)</h3>
+                    <div class="price-info">
+                        <div class="price">S/ 55.00 <span>(Unidad)</span></div>
+                        <div class="price-offer">S/ 50.00 <span>(A partir de 3)</span></div>
+                    </div>
+                    <button class="btn add-to-cart">Agregar al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="sobre-mi">
+        <div class="row">
+            <div class="image">
+                <img src="img/maestro_juan.jpg" alt="Foto del maestro Juan Manuel">
+            </div>
+            <div class="content">
+                <h3>El Alma de Nuestros Tragos</h3>
+                <p>Cada botella nace de un proceso artesanal. Seleccionamos a mano los frutos más exóticos de Lamas y los dejamos macerar lentamente en aguardiente de caña. Tras un paciente reposo para perfeccionar su sabor, embotellamos la verdadera esencia y magia de nuestra selva, siguiendo el legado de nuestras recetas familiares.</p>
+                <p>Nuestros licores capturan el espíritu de Lamas. Combinando recetas familiares con nuestra pasión, transformamos frutos locales en sabores únicos. El secreto está en la maceración paciente y el reposo adecuado, un proceso artesanal que convierte cada botella en un auténtico sorbo de la selva.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="share">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+        </div>
+        <div class="credit">
+            Creado por <span>Sofía Irene</span> | Todos los derechos reservados 2025
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

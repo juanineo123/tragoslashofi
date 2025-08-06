@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - Selva Fusión</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="payment-page">
+
+    <header class="header">
+        <a href="index.html" class="logo">
+            <i class="fas fa-leaf"></i> Selva Fusión
+        </a>
+    </header>
+
+    <main class="payment-main-content">
+        <div class="payment-container">
+            <h1 class="heading">Finaliza tu <span>Compra</span></h1>
+
+            <div class="payment-layout">
+
+                <div class="order-summary-wrapper">
+                    <div class="order-summary">
+                        <h2>Resumen de tu Pedido</h2>
+                        <div id="summary-items">
+                            </div>
+                        <h3 class="total-price" id="summary-total">Total: S/ 0.00</h3>
+                    </div>
+                </div>
+
+                <div class="payment-details">
+                    <div class="payment-methods">
+                        <h2>Elige tu Método de Pago</h2>
+                        <p>Realiza el pago y presiona el botón de WhatsApp para enviarnos tu comprobante y coordinar la entrega.</p>
+                        
+                        <div class="methods-grid">
+                            <div class="method">
+                                <img src="img/yape_logo.svg" alt="Yape" class="method-logo">
+                                <h4>Yape</h4>
+                                <p>987 654 321</p>
+                                <p class="subtext">(Juan Manuel C. O.)</p>
+                            </div>
+                            <div class="method">
+                                <img src="img/plin_logo.svg" alt="Plin" class="method-logo">
+                                <h4>Plin</h4>
+                                <p>987 654 321</p>
+                                <p class="subtext">(Juan Manuel C. O.)</p>
+                            </div>
+                            <div class="method">
+                                <img src="img/bcp_logo.svg" alt="BCP" class="method-logo">
+                                <h4>BCP</h4>
+                                <p>Cta: 123-4567890-0-11</p>
+                                <p class="subtext">(Juan Manuel Caicedo O.)</p>
+                            </div>
+                            <div class="method">
+                                 <img src="img/bn_logo.svg" alt="Banco de la Nación" class="method-logo">
+                                <h4>Banco de la Nación</h4>
+                                <p>Cta: 04-123-456789</p>
+                                <p class="subtext">(Juan Manuel Caicedo O.)</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="whatsapp-confirmation">
+                        <h2>¿Listo para Confirmar?</h2>
+                        <a href="#" id="whatsapp-btn" class="btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Finalizar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
