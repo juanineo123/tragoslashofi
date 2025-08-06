@@ -201,16 +201,29 @@ section {
     box-shadow: var(--sombra-fuerte);
 }
 
+/* --- Reemplaza el código existente por este bloque --- */
+
+/* ===============================================================
+   CÓDIGO CORREGIDO PARA LA IMAGEN DEL PRODUCTO
+   =============================================================== */
+
+/* ===============================================================
+   CÓDIGO FINAL Y SIMPLIFICADO PARA IMÁGENES DE PRODUCTO
+   =============================================================== */
+
 .products .box .image {
     width: 100%;
-    height: 30rem;
+    /* Se elimina la altura fija. La altura ahora dependerá de la imagen. */
     overflow: hidden;
 }
 
 .products .box .image img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    /* La imagen ocupa todo el ancho de la tarjeta. */
+    height: auto;
+    /* La altura se ajusta automáticamente para no deformar la imagen. */
+    display: block;
+    /* Buena práctica para evitar espacios extra debajo de la imagen. */
 }
 
 .products .box .content {
@@ -345,8 +358,10 @@ section {
     top: 0;
     right: -100%;
     height: 100vh;
-    width: 38rem; /* Un poco más ancho para más comodidad */
-    max-width: 90vw; /* Asegura que no ocupe toda la pantalla en móviles */
+    width: 38rem;
+    /* Un poco más ancho para más comodidad */
+    max-width: 90vw;
+    /* Asegura que no ocupe toda la pantalla en móviles */
     background: var(--color-fondo);
     box-shadow: var(--sombra-fuerte);
     z-index: 1001;
@@ -355,7 +370,8 @@ section {
     /* --- NUEVA ESTRUCTURA CON FLEXBOX --- */
     display: flex;
     flex-direction: column;
-    padding: 0; /* Eliminamos el padding viejo para controlar el espacio manualmente */
+    padding: 0;
+    /* Eliminamos el padding viejo para controlar el espacio manualmente */
 }
 
 .cart-items-container.active {
@@ -402,9 +418,12 @@ section {
 }
 
 .cart-items-container .btn {
-    width: calc(100% - 5rem); /* Ancho completo menos los paddings laterales */
-    margin: 2rem auto; /* Centrado con margen arriba y abajo */
-    flex-shrink: 0; /* Evita que el botón se encoja */
+    width: calc(100% - 5rem);
+    /* Ancho completo menos los paddings laterales */
+    margin: 2rem auto;
+    /* Centrado con margen arriba y abajo */
+    flex-shrink: 0;
+    /* Evita que el botón se encoja */
 }
 
 @media (max-width:991px) {
@@ -492,10 +511,14 @@ section {
 }
 
 #cart-items {
-    padding: 8rem 2.5rem 2rem 2.5rem; /* AÑADIMOS UN GRAN PADDING SUPERIOR */
-    flex-grow: 1; /* Hace que esta sección ocupe todo el espacio disponible */
-    overflow-y: auto; /* SOLO esta sección tendrá scroll */
-    margin-top: 0; /* Nos aseguramos de que no tenga márgenes viejos */
+    padding: 8rem 2.5rem 2rem 2.5rem;
+    /* AÑADIMOS UN GRAN PADDING SUPERIOR */
+    flex-grow: 1;
+    /* Hace que esta sección ocupe todo el espacio disponible */
+    overflow-y: auto;
+    /* SOLO esta sección tendrá scroll */
+    margin-top: 0;
+    /* Nos aseguramos de que no tenga márgenes viejos */
 }
 
 .cart-item {
@@ -620,7 +643,7 @@ section {
 
 
 /* =================================================================
-   8. PÁGINA DE PAGO
+   8. PÁGINA DE PAGO (VERSIÓN ACTUALIZADA)
    ================================================================= */
 .payment-page {
     padding-top: 12rem;
@@ -633,6 +656,7 @@ section {
     background-color: var(--color-tarjetas);
     border-radius: 1rem;
     box-shadow: var(--sombra-suave);
+    border: .2rem solid var(--color-texto); /* Mantenemos el borde grueso */
 }
 
 .order-summary,
@@ -678,42 +702,89 @@ section {
 .methods-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    gap: 2rem;
+    gap: 2.5rem; /* Aumentamos el espacio entre tarjetas */
 }
 
+/* --- ESTILOS PARA LAS TARJETAS DE PAGO (NUEVO) --- */
 .method {
-    background-color: var(--color-fondo);
-    padding: 2rem;
-    border-radius: .5rem;
-    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 12px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 28rem; /* Altura mínima para alinear todas las tarjetas */
 }
 
-.method .method-logo {
-    height: 3.5rem;
-    margin-bottom: 1rem;
-    object-fit: contain;
+/* Texto blanco para todas las tarjetas */
+.method h4, .method p {
+    color: #FFFFFF;
 }
 
 .method h4 {
-    font-size: 1.8rem;
-    color: var(--color-texto);
-    margin-bottom: 1rem;
+    font-size: 2rem; /* Título un poco más grande */
 }
 
 .method p {
+    font-size: 1.5rem;
+}
+
+/* Colores de fondo específicos */
+.method.yape { background-color: #5B2C6F; }
+.method.plin { background-color: #00A98E; }
+.method.bcp { background-color: #0038A8; }
+.method.bn { background-color: #D52B1E; }
+
+/* Estilo para las imágenes QR */
+.qr-image {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    margin: 15px 0;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Estilos para el campo de número de cuenta y botón */
+.account-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    max-width: 240px;
+    margin: 10px 0;
+}
+
+.account-field input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    font-weight: 500;
     font-size: 1.4rem;
-    color: #666;
+    text-align: center;
+}
+
+.account-field button {
+    padding: 10px 12px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #007bff;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    font-size: 16px;
     line-height: 1.5;
-    min-height: 5rem;
-    /* Para alinear verticalmente */
 }
 
-.method .qr-code {
-    width: 15rem;
-    margin-top: 1.5rem;
+.account-field button:hover {
+    color: #0056b3;
 }
 
+/* --- ESTILOS PARA EL BOTÓN DE WHATSAPP --- */
 .whatsapp-confirmation {
     text-align: center;
 }
@@ -768,31 +839,43 @@ section {
     color: var(--color-acento-hover);
     transform: rotate(90deg);
 }
+
 /* =============================================== */
 /* ESTILOS PARA EL BOTÓN FLOTANTE DE WHATSAPP      */
 /* =============================================== */
 .whatsapp-flotante {
-  position: fixed; /* Hace que el botón se quede fijo en la pantalla */
-  width: 60px;
-  height: 60px;
-  bottom: 30px; /* Distancia desde la parte inferior */
-  right: 30px;  /* Distancia desde la parte derecha */
-  background-color: #25D366; /* Color verde de WhatsApp */
-  color: #FFF; /* Color del ícono (blanco) */
-  border-radius: 50px; /* Lo hace completamente redondo */
-  text-align: center;
-  font-size: 30px; /* Tamaño del ícono */
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4); /* Sombra para que resalte */
-  z-index: 1000; /* Asegura que esté por encima de todo */
-  transition: transform 0.2s ease-in-out; /* Suaviza la animación */
+    position: fixed;
+    /* Hace que el botón se quede fijo en la pantalla */
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    /* Distancia desde la parte inferior */
+    right: 30px;
+    /* Distancia desde la parte derecha */
+    background-color: #25D366;
+    /* Color verde de WhatsApp */
+    color: #FFF;
+    /* Color del ícono (blanco) */
+    border-radius: 50px;
+    /* Lo hace completamente redondo */
+    text-align: center;
+    font-size: 30px;
+    /* Tamaño del ícono */
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    /* Sombra para que resalte */
+    z-index: 1000;
+    /* Asegura que esté por encima de todo */
+    transition: transform 0.2s ease-in-out;
+    /* Suaviza la animación */
 }
 
 /* Efecto al pasar el mouse por encima */
 .whatsapp-flotante:hover {
-  transform: scale(1.1); /* Agranda un poco el botón */
+    transform: scale(1.1);
+    /* Agranda un poco el botón */
 }
 
 /* Ajusta el ícono para que quede perfectamente centrado */
 .whatsapp-flotante i {
-  margin-top: 15px;
+    margin-top: 15px;
 }
