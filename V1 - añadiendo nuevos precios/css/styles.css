@@ -1,0 +1,934 @@
+/* =================================================================
+   DISEÑO COMPLETO Y FINAL - SELVA FUSIÓN 2025
+   ================================================================= */
+
+/* --- 1. CONFIGURACIÓN GLOBAL Y PALETA DE COLORES --- */
+:root {
+    --font-titulos: 'Lora', serif;
+    --font-cuerpo: 'Roboto', sans-serif;
+    --color-fondo: #FBF9F1;
+    --color-texto: #3C2A21;
+    --color-acento: #0C7D5A;
+    --color-acento-hover: #D83F31;
+    --color-tarjetas: #FFFFFF;
+    --sombra-suave: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --sombra-fuerte: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 10rem;
+}
+
+body {
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: var(--font-cuerpo);
+}
+
+section {
+    padding: 4rem 7%;
+}
+
+.heading {
+    text-align: center;
+    font-family: var(--font-titulos);
+    font-size: 4rem;
+    margin-bottom: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.heading span {
+    color: var(--color-acento);
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 1.2rem 3.5rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #fff;
+    background: var(--color-acento);
+    border-radius: 5rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn:hover {
+    background: var(--color-acento-hover);
+    transform: translateY(-3px);
+    box-shadow: var(--sombra-fuerte);
+}
+
+/* --- 2. HEADER Y NAVEGACIÓN --- */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 7%;
+    background: var(--color-fondo);
+    box-shadow: var(--sombra-suave);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.header .logo {
+    font-family: var(--font-titulos);
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--color-texto);
+}
+
+.header .logo i {
+    color: var(--color-acento);
+    margin-right: .5rem;
+}
+
+.header .navbar a {
+    margin: 0 1.5rem;
+    font-size: 1.6rem;
+    color: var(--color-texto);
+    position: relative;
+    padding-bottom: .5rem;
+}
+
+.header .navbar a:hover {
+    color: var(--color-acento);
+}
+
+.header .icons div {
+    color: var(--color-texto);
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: 2rem;
+}
+
+.header .icons div:hover {
+    color: var(--color-acento-hover);
+}
+
+#menu-btn {
+    display: none;
+}
+
+/* --- 3. SECCIÓN DE INICIO (HOME) Y ANIMACIÓN --- */
+.home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 10rem;
+    /* Para que el texto no quede detrás del menú */
+
+    /* La siguiente línea usa una imagen de internet como fondo temporal */
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://blog.trip-peru.com/wp-content/uploads/2019/10/licores-afrodisiacos-bebidas-peruanas-1-1024x597.jpg') no-repeat;
+
+    background-size: cover;
+    background-position: center;
+}
+
+.home .content {
+    max-width: 65rem;
+}
+
+/* CÓDIGO NUEVO Y CORREGIDO */
+.home .content h3 {
+    font-family: var(--font-titulos);
+    font-size: 4.8rem;
+    /* <-- TAMAÑO AJUSTADO PARA PANTALLAS GRANDES */
+    color: #fff;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+/* Animación Letra por Letra */
+.home .content h3 span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px) scale(0.8);
+    animation: letras-volando 0.5s forwards cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes letras-volando {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.home .content p {
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 1.8;
+    padding: 2rem 0;
+    color: #eee;
+}
+
+/* --- 4. SECCIÓN DE PRODUCTOS --- */
+.products .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2.5rem;
+}
+
+.products .box {
+    background: var(--color-tarjetas);
+    border-radius: 1rem;
+    box-shadow: var(--sombra-suave);
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.products .box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-fuerte);
+}
+
+/* --- Reemplaza el código existente por este bloque --- */
+
+/* ===============================================================
+   CÓDIGO CORREGIDO PARA LA IMAGEN DEL PRODUCTO
+   =============================================================== */
+
+/* ===============================================================
+   CÓDIGO FINAL Y SIMPLIFICADO PARA IMÁGENES DE PRODUCTO
+   =============================================================== */
+
+.products .box .image {
+    width: 100%;
+    /* Se elimina la altura fija. La altura ahora dependerá de la imagen. */
+    overflow: hidden;
+}
+
+.products .box .image img {
+    width: 100%;
+    /* La imagen ocupa todo el ancho de la tarjeta. */
+    height: auto;
+    /* La altura se ajusta automáticamente para no deformar la imagen. */
+    display: block;
+    /* Buena práctica para evitar espacios extra debajo de la imagen. */
+}
+
+.products .box .content {
+    padding: 2.5rem 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.products .box .content h3 {
+    font-family: var(--font-titulos);
+    font-size: 2.2rem;
+    color: var(--color-texto);
+}
+
+.products .box .content .price-info {
+    margin: 1.5rem 0;
+}
+
+.products .box .content .price {
+    font-size: 2rem;
+    color: #777;
+    font-weight: 300;
+}
+
+.products .box .content .price span {
+    font-size: 1.4rem;
+    text-decoration: line-through;
+}
+
+.products .box .content .price-offer {
+    font-size: 2.4rem;
+    color: var(--color-acento);
+    font-weight: 600;
+    font-family: var(--font-titulos);
+}
+
+.products .box .content .price-offer span {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-texto);
+    font-family: var(--font-cuerpo);
+}
+
+/* --- 5. SECCIÓN SOBRE MÍ --- */
+.about .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    background: var(--color-tarjetas);
+    border-radius: 1rem;
+    box-shadow: var(--sombra-suave);
+    overflow: hidden;
+}
+
+.about .row .image {
+    flex: 1 1 40rem;
+    min-height: 40rem;
+}
+
+.about .row .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about .row .content {
+    flex: 1 1 50rem;
+    padding: 3rem 4rem;
+}
+
+.about .row .content h3 {
+    font-family: var(--font-titulos);
+    font-size: 3rem;
+    color: var(--color-acento);
+}
+
+.about .row .content p {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    padding: 1rem 0;
+    color: #666;
+}
+
+/* --- 6. FOOTER --- */
+.footer {
+    background: #e8e5d9;
+    text-align: center;
+    padding: 3rem 7%;
+    margin-top: 4rem;
+}
+
+.footer .share {
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+}
+
+.footer .share a {
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    color: var(--color-texto);
+    border-radius: 50%;
+    border: 1px solid #ccc;
+}
+
+.footer .share a:hover {
+    background-color: var(--color-acento);
+    color: #fff;
+    border-color: var(--color-acento);
+}
+
+.footer .credit {
+    font-size: 1.6rem;
+    color: var(--color-texto);
+    padding-top: 2rem;
+    margin-top: 1rem;
+    border-top: 1px solid #ccc;
+}
+
+.footer .credit span {
+    color: var(--color-acento);
+    font-weight: 600;
+}
+
+/* --- 7. CARRITO DE COMPRAS Y RESPONSIVE --- */
+.cart-items-container {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 38rem;
+    /* Un poco más ancho para más comodidad */
+    max-width: 90vw;
+    /* Asegura que no ocupe toda la pantalla en móviles */
+    background: var(--color-fondo);
+    box-shadow: var(--sombra-fuerte);
+    z-index: 1001;
+    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    /* --- NUEVA ESTRUCTURA CON FLEXBOX --- */
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    /* Eliminamos el padding viejo para controlar el espacio manualmente */
+}
+
+.cart-items-container.active {
+    right: 0;
+}
+
+.cart-item {
+    position: relative;
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.cart-item .fa-times {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-texto);
+}
+
+.cart-item .fa-times:hover {
+    color: var(--color-acento-hover);
+}
+
+.cart-item img {
+    height: 7rem;
+    border-radius: .5rem;
+}
+
+.cart-item .content h3 {
+    font-size: 1.8rem;
+    color: var(--color-texto);
+    padding-bottom: .5rem;
+    font-family: var(--font-cuerpo);
+}
+
+.cart-item .content .price {
+    font-size: 1.5rem;
+    color: var(--color-acento);
+    font-weight: 600;
+}
+
+.cart-items-container .btn {
+    width: calc(100% - 5rem);
+    /* Ancho completo menos los paddings laterales */
+    margin: 2rem auto;
+    /* Centrado con margen arriba y abajo */
+    flex-shrink: 0;
+    /* Evita que el botón se encoja */
+}
+
+@media (max-width:991px) {
+    html {
+        font-size: 55%;
+    }
+
+    .header {
+        padding: 2rem;
+    }
+
+    section {
+        padding: 3rem 2rem;
+    }
+}
+
+@media (max-width:768px) {
+    #menu-btn {
+        display: inline-block;
+    }
+
+    .header .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background: var(--color-fondo);
+        width: 30rem;
+        height: 100vh;
+        box-shadow: var(--sombra-fuerte);
+        z-index: 1001;
+    }
+
+    .header .navbar.active {
+        right: 0;
+    }
+
+    .header .navbar a {
+        color: var(--color-texto);
+        display: block;
+        margin: 1.5rem;
+        padding: .5rem;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .home {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .home .content h3 {
+        font-size: 4.5rem;
+    }
+
+    .home .content p {
+        font-size: 1.6rem;
+    }
+}
+
+/* =================================================================
+   7. CARRITO DE COMPRAS Y MEDIA QUERIES COMPLETAS
+   ================================================================= */
+
+/* --- Estilos para el Carrito de Compras Deslizable --- */
+.cart-items-container {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    /* Inicia oculto fuera de la pantalla */
+    height: 100vh;
+    width: 35rem;
+    background: var(--color-fondo);
+    padding: 2rem 3rem;
+    box-shadow: var(--sombra-fuerte);
+    z-index: 1001;
+    /* Asegura que esté por encima de todo */
+    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-items-container.active {
+    right: 0;
+    /* Lo hace visible */
+}
+
+#cart-items {
+    padding: 8rem 2.5rem 2rem 2.5rem;
+    /* AÑADIMOS UN GRAN PADDING SUPERIOR */
+    flex-grow: 1;
+    /* Hace que esta sección ocupe todo el espacio disponible */
+    overflow-y: auto;
+    /* SOLO esta sección tendrá scroll */
+    margin-top: 0;
+    /* Nos aseguramos de que no tenga márgenes viejos */
+}
+
+.cart-item {
+    position: relative;
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.cart-item .fa-times {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-texto);
+}
+
+.cart-item .fa-times:hover {
+    color: var(--color-acento-hover);
+}
+
+.cart-item img {
+    height: 7rem;
+    border-radius: .5rem;
+    border: 1px solid #eee;
+}
+
+.cart-item .content h3 {
+    font-size: 1.8rem;
+    color: var(--color-texto);
+    padding-bottom: .5rem;
+    font-family: var(--font-cuerpo);
+    font-weight: 500;
+}
+
+.cart-item .content .price {
+    font-size: 1.5rem;
+    color: var(--color-acento);
+    font-weight: 600;
+}
+
+.cart-items-container .btn {
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+    /* Empuja el botón hacia abajo */
+    padding-top: 1.5rem;
+}
+
+/* --- Media Queries (Responsive) Completas --- */
+@media (max-width: 991px) {
+    html {
+        font-size: 55%;
+    }
+
+    .header {
+        padding: 2rem;
+    }
+
+    section {
+        padding: 3rem 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #menu-btn {
+        display: inline-block;
+    }
+
+    .header .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        /* Inicia oculto */
+        background: var(--color-fondo);
+        width: 30rem;
+        height: 100vh;
+        box-shadow: var(--sombra-fuerte);
+        z-index: 1001;
+        transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header .navbar.active {
+        right: 0;
+        /* Lo hace visible */
+    }
+
+    .header .navbar a {
+        color: var(--color-texto);
+        display: block;
+        margin: 1.5rem;
+        padding: .5rem;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .home {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .home .content {
+        max-width: 100%;
+        padding: 0 2rem;
+    }
+
+    /* CÓDIGO NUEVO Y CORREGIDO */
+    .home .content h3 {
+        font-size: 3.2rem;
+    }
+
+    .home .content p {
+        font-size: 1.6rem;
+    }
+}
+
+
+/* =================================================================
+   8. PÁGINA DE PAGO (VERSIÓN ACTUALIZADA)
+   ================================================================= */
+.payment-page {
+    padding-top: 12rem;
+}
+
+.payment-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 4rem;
+    background-color: var(--color-tarjetas);
+    border-radius: 1rem;
+    box-shadow: var(--sombra-suave);
+    border: .2rem solid var(--color-texto); /* Mantenemos el borde grueso */
+}
+
+.order-summary,
+.payment-methods,
+.whatsapp-confirmation {
+    margin-bottom: 4rem;
+}
+
+.order-summary h2,
+.payment-methods h2,
+.whatsapp-confirmation h2 {
+    font-family: var(--font-titulos);
+    font-size: 2.8rem;
+    color: var(--color-texto);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+#summary-items .summary-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.6rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.total-price {
+    text-align: right;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    color: var(--color-acento);
+}
+
+.payment-methods p {
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 2.5rem;
+}
+
+.methods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 2.5rem; /* Aumentamos el espacio entre tarjetas */
+}
+
+/* --- ESTILOS PARA LAS TARJETAS DE PAGO (NUEVO) --- */
+.method {
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 28rem; /* Altura mínima para alinear todas las tarjetas */
+}
+
+/* Texto blanco para todas las tarjetas */
+.method h4, .method p {
+    color: #FFFFFF;
+}
+
+.method h4 {
+    font-size: 2rem; /* Título un poco más grande */
+}
+
+.method p {
+    font-size: 1.5rem;
+}
+
+/* Colores de fondo específicos */
+.method.yape { background-color: #5B2C6F; }
+.method.plin { background-color: #00A98E; }
+.method.bcp { background-color: #0038A8; }
+.method.bn { background-color: #D52B1E; }
+
+/* Estilo para las imágenes QR */
+.qr-image {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    margin: 15px 0;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Estilos para el campo de número de cuenta y botón */
+.account-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    max-width: 240px;
+    margin: 10px 0;
+}
+
+.account-field input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    font-weight: 500;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.account-field button {
+    padding: 10px 12px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #007bff;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.account-field button:hover {
+    color: #0056b3;
+}
+
+/* --- ESTILOS PARA EL BOTÓN DE WHATSAPP --- */
+.whatsapp-confirmation {
+    text-align: center;
+}
+
+.btn-whatsapp {
+    background-color: #25D366;
+    color: white;
+    padding: 1.5rem 3rem;
+    font-size: 2rem;
+    border-radius: 5rem;
+    display: inline-block;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    box-shadow: var(--sombra-suave);
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E;
+    transform: translateY(-3px);
+    box-shadow: var(--sombra-fuerte);
+}
+
+.btn-whatsapp i {
+    margin-right: 1rem;
+}
+
+/* ===================================================
+   CORRECCIÓN FINAL - AÑADIR BORDES NEGROS GRUESOS
+   =================================================== */
+
+.products .box,
+.about .row,
+.payment-container {
+    border: .2rem solid var(--color-texto);
+}
+
+/* ===================================================
+   CORRECCIÓN - BOTÓN PARA CERRAR CARRITO
+   =================================================== */
+
+#cart-close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2.5rem;
+    font-size: 3.5rem;
+    cursor: pointer;
+    color: var(--color-texto);
+    z-index: 10;
+}
+
+#cart-close-btn:hover {
+    color: var(--color-acento-hover);
+    transform: rotate(90deg);
+}
+
+/* =============================================== */
+/* ESTILOS PARA EL BOTÓN FLOTANTE DE WHATSAPP      */
+/* =============================================== */
+.whatsapp-flotante {
+    position: fixed;
+    /* Hace que el botón se quede fijo en la pantalla */
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    /* Distancia desde la parte inferior */
+    right: 30px;
+    /* Distancia desde la parte derecha */
+    background-color: #25D366;
+    /* Color verde de WhatsApp */
+    color: #FFF;
+    /* Color del ícono (blanco) */
+    border-radius: 50px;
+    /* Lo hace completamente redondo */
+    text-align: center;
+    font-size: 30px;
+    /* Tamaño del ícono */
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    /* Sombra para que resalte */
+    z-index: 1000;
+    /* Asegura que esté por encima de todo */
+    transition: transform 0.2s ease-in-out;
+    /* Suaviza la animación */
+}
+
+/* Efecto al pasar el mouse por encima */
+.whatsapp-flotante:hover {
+    transform: scale(1.1);
+    /* Agranda un poco el botón */
+}
+
+/* Ajusta el ícono para que quede perfectamente centrado */
+.whatsapp-flotante i {
+    margin-top: 15px;
+}
+
+/* =============================================== */
+/* ESTILOS PARA LA NUEVA TARJETA DE PRODUCTO       */
+/* =============================================== */
+
+.products .box .content .input-label {
+    display: block;
+    font-size: 1.4rem;
+    color: #666;
+    margin-top: 1.5rem;
+    text-align: left;
+}
+
+.products .box .content .size-selector,
+.products .box .content .quantity-input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    border-radius: .5rem;
+    border: 1px solid #ccc;
+    margin-top: .5rem;
+    background-color: #fdfdfd;
+}
+
+.products .box .content .price {
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--color-acento);
+    margin-top: 1.5rem;
+}
+
+.products .box .content .quantity-selector {
+    margin: 1.5rem 0;
+}
+
+/* Estilo para el botón cuando un producto está en el carrito */
+.btn.in-cart {
+    background-color: var(--color-acento-hover); /* Rojo */
+}
+
+/* Estilo para inputs deshabilitados */
+.quantity-input:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+/* Estilo para botones deshabilitados */
+.btn:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}

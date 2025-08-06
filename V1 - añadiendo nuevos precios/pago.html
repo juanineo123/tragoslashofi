@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - Selva Fusión</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Roboto:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Estilo general para las tarjetas de pago */
+        .method {
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Cambia el color del texto a blanco para que se lea en fondos de color */
+        .method h4,
+        .method p {
+            color: #FFFFFF;
+        }
+
+        /* Estilo para todas las imágenes QR */
+        .qr-image {
+            width: 100%;
+            max-width: 200px;
+            /* Tamaño unificado para todos los QR */
+            height: auto;
+            margin: 15px 0;
+            background-color: white;
+            /* Fondo blanco para el QR por si es transparente */
+            padding: 10px;
+            /* Espacio para que el QR no toque los bordes */
+            border-radius: 8px;
+        }
+
+        /* Colores específicos para cada método de pago */
+        .method.yape {
+            background-color: #5B2C6F;
+        }
+
+        /* Morado Yape */
+        .method.plin {
+            background-color: #00A98E;
+        }
+
+        /* Verde Plin */
+        .method.bcp {
+            background-color: #0038A8;
+        }
+
+        /* Azul BCP */
+        .method.bn {
+            background-color: #D52B1E;
+        }
+
+        /* Rojo Banco de la Nación */
+    </style>
+  
+</head>
+
+<body class="payment-page">
+
+    <header class="header">
+        <a href="index.html" class="logo">
+            <i class="fas fa-leaf"></i> Selva Fusión
+        </a>
+    </header>
+
+    <main class="payment-main-content">
+        <div class="payment-container">
+            <h1 class="heading">Finaliza tu <span>Compra</span></h1>
+
+            <div class="payment-layout">
+
+                <div class="order-summary-wrapper">
+                    <div class="order-summary">
+                        <h2>Resumen de tu Pedido</h2>
+                        <div id="summary-items"></div>
+                        <h3 class="total-price" id="summary-total">Total: S/ 0.00</h3>
+                    </div>
+                </div>
+
+                <div class="payment-details">
+                    <div class="payment-methods">
+                        <h2>Elige tu Método de Pago</h2>
+                        <p>Realiza el pago y presiona el botón de WhatsApp para enviarnos tu comprobante y coordinar la
+                            entrega.</p>
+
+                        <div class="methods-grid">
+
+                            <div class="method yape">
+                                <h4>Yape</h4>
+                                <img src="img/yape_qr.png" alt="Código QR de Yape" class="qr-image">
+                                <p class="subtext">(Sofia Irene Belda Neciosup)</p>
+                            </div>
+
+                            <div class="method plin">
+                                <h4>Plin</h4>
+                                <img src="img/yape_qr.png" alt="Código QR de Plin" class="qr-image">
+                                <p class="subtext">(Sofia Irene Belda Neciosup)</p>
+                            </div>
+
+                            <div class="method bcp">
+                                <h4>BCP</h4>
+                                <p>N° de Cuenta Corriente:</p>
+                                <div class="account-field">
+                                    <input type="text" value="191-12345678-0-11" id="bcp-account" readonly>
+                                    <button id="copy-bcp" title="Copiar número de cuenta">
+                                        <i class="far fa-copy"></i>
+                                    </button>
+                                </div>
+                                <p class="subtext">(Sofia Irene Belda Neciosup)</p>
+                            </div>
+
+                            <div class="method bn">
+                                <h4>Banco de la Nación</h4>
+                                <p>N° de Cuenta de Ahorros:</p>
+                                <div class="account-field">
+                                    <input type="text" value="04-012-345678" id="bn-account" readonly>
+                                    <button id="copy-bn" title="Copiar número de cuenta">
+                                        <i class="far fa-copy"></i>
+                                    </button>
+                                </div>
+                                <p class="subtext">(Sofia Irene Belda Neciosup)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="whatsapp-confirmation">
+                        <h2>¿Listo para Confirmar?</h2>
+                        <a href="#" id="whatsapp-btn" class="btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Finalizar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+    <script>
+        function setupCopyButton(buttonId, inputId) {
+            const copyButton = document.getElementById(buttonId);
+            const accountInput = document.getElementById(inputId);
+
+            if (copyButton) { // Asegura que el botón exista en la página
+                copyButton.addEventListener('click', () => {
+                    // Copia el texto al portapapeles
+                    navigator.clipboard.writeText(accountInput.value).then(() => {
+                        // Feedback visual para el usuario: cambia el ícono a un check
+                        const originalIcon = copyButton.innerHTML;
+                        copyButton.innerHTML = '<i class="fas fa-check" style="color: green;"></i>';
+                        
+                        // Vuelve al ícono original después de 2 segundos
+                        setTimeout(() => {
+                            copyButton.innerHTML = originalIcon;
+                        }, 2000);
+                    }).catch(err => {
+                        // En caso de que ocurra un error
+                        console.error('Error al intentar copiar el texto: ', err);
+                        alert('No se pudo copiar el texto.');
+                    });
+                });
+            }
+        }
+
+        // Se activa la funcionalidad para el botón de BCP
+        setupCopyButton('copy-bcp', 'bcp-account');
+        
+        // Se activa la funcionalidad para el botón de Banco de la Nación
+        setupCopyButton('copy-bn', 'bn-account');
+    </script>
+</body>
+
+</html>
