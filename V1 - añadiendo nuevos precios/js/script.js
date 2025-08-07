@@ -17,29 +17,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartBtn = document.querySelector('#cart-btn');
     const cartCloseBtn = document.querySelector('#cart-close-btn');
 
-    if(menuBtn) {
+    if (menuBtn) {
         menuBtn.onclick = () => {
             navbar.classList.toggle('active');
-            if(cartContainer) cartContainer.classList.remove('active');
+            if (cartContainer) cartContainer.classList.remove('active');
         };
     }
 
-    if(cartBtn) {
+    if (cartBtn) {
         cartBtn.onclick = () => {
             cartContainer.classList.toggle('active');
-            if(navbar) navbar.classList.remove('active');
+            if (navbar) navbar.classList.remove('active');
         };
     }
-    
-    if(cartCloseBtn) {
+
+    if (cartCloseBtn) {
         cartCloseBtn.onclick = () => {
             cartContainer.classList.remove('active');
         };
     }
 
     window.onscroll = () => {
-        if(navbar) navbar.classList.remove('active');
-        if(cartContainer) cartContainer.classList.remove('active');
+        if (navbar) navbar.classList.remove('active');
+        if (cartContainer) cartContainer.classList.remove('active');
     };
 
     // --- LÓGICA DEL NUEVO CARRITO DE COMPRAS (PARA INDEX.HTML) ---
@@ -69,17 +69,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 cart.forEach(item => {
                     const imageName = item.name.toLowerCase().replace(/ \(.+\)/, '').replace(/\s/g, '_');
                     const itemHtml = `
-                        <div class="cart-item">
-                            <span class="fas fa-times remove-from-cart" data-id="${item.id}"></span>
-                            <img src="img/${imageName}.jpg" alt="${item.name}">
-                            <div class="content">
-                                <h3>${item.id.replace('-', '<br>')}</h3>
-                                <div class="price">
-                                    ${item.quantity} x S/ ${item.price.toFixed(2)} = <strong>S/ ${(item.quantity * item.price).toFixed(2)}</strong>
-                                </div>
-                            </div>
+                <div class="cart-item">
+                    <span class="fas fa-times remove-from-cart" data-id="${item.id}"></span>
+                    <img src="img/${imageName}.jpg" alt="${item.name}">
+                    <div class="content">
+                        <h3>${item.id.replace('-', '<br>')}</h3>
+                        <div class="price">
+                            ${item.quantity} x S/ ${item.price.toFixed(2)} = <strong>S/ ${(item.quantity * item.price).toFixed(2)}</strong>
                         </div>
-                    `;
+                    </div>
+                </div>
+            `;
                     cartItemsEl.innerHTML += itemHtml;
                 });
             }
@@ -87,6 +87,22 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.remove-from-cart').forEach(button => {
                 button.onclick = (e) => {
                     const itemId = e.target.dataset.id;
+
+                    // --- INICIO DE LA MEJORA ---
+                    // Antes de borrar el producto del carrito, buscamos su información completa.
+                    const itemToRemove = cart.find(item => item.id === itemId);
+                    if (itemToRemove) {
+                        // Usamos el 'nombre base' del producto para encontrar su tarjeta en la página.
+                        const productBox = document.querySelector(`.box[data-name="${itemToRemove.name}"]`);
+                        if (productBox) {
+                            // Si encontramos la tarjeta, reseteamos su selector de tamaño a la primera opción.
+                            // La primera opción es "-- Elige un tamaño --".
+                            productBox.querySelector('.size-selector').selectedIndex = 0;
+                        }
+                    }
+                    // --- FIN DE LA MEJORA ---
+
+                    // Ahora sí, eliminamos el producto del carrito y actualizamos todo.
                     cart = cart.filter(item => item.id !== itemId);
                     saveCart();
                     updateCartUI();
@@ -100,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const quantityInput = box.querySelector('.quantity-input');
             const button = box.querySelector('.add-to-cart');
             const priceDisplay = box.querySelector('.price');
-            
+
             if (!sizeSelector.value) {
                 priceDisplay.textContent = '';
                 button.disabled = true;
@@ -108,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.textContent = 'Elige un tamaño';
                 return;
             }
-            
+
             button.disabled = false;
             const itemId = generateItemId(box);
             const itemInCart = cart.find(item => item.id === itemId);
@@ -134,16 +150,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const priceDisplay = box.querySelector('.price');
             const quantityInput = box.querySelector('.quantity-input');
 
-            // --- ESTADO INICIAL DE CADA TARJETA AL CARGAR ---
-            priceDisplay.textContent = '';
-            box.querySelector('.add-to-cart').disabled = true;
-            box.querySelector('.add-to-cart').textContent = 'Elige un tamaño';
-
+            // Estado inicial de cada tarjeta al cargar
+            if (!sizeSelector.value) {
+                priceDisplay.textContent = '';
+                box.querySelector('.add-to-cart').disabled = true;
+                box.querySelector('.add-to-cart').textContent = 'Elige un tamaño';
+            }
 
             sizeSelector.addEventListener('change', (e) => {
                 const selectedOption = e.target.options[e.target.selectedIndex];
-                
-                if(selectedOption.value){
+
+                if (selectedOption.value) {
                     const price = parseFloat(selectedOption.value);
                     priceDisplay.textContent = `S/ ${price.toFixed(2)}`;
                 } else {
@@ -160,8 +177,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 const itemInCart = cart.find(item => item.id === itemId);
 
                 if (itemInCart) {
+                    // Acción de "Quitar del Carrito"
                     cart = cart.filter(item => item.id !== itemId);
+
+                    // --- INICIO DE LA CORRECCIÓN ---
+                    // Después de quitarlo, reiniciamos el selector de esa tarjeta a la posición inicial.
+                    box.querySelector('.size-selector').selectedIndex = 0;
+                    // --- FIN DE LA CORRECCIÓN ---
+
                 } else {
+                    // Acción de "Agregar al Carrito" (esta parte ya estaba bien)
                     const name = box.dataset.name;
                     const price = parseFloat(sizeSelector.value);
                     const quantity = parseInt(quantityInput.value, 10);
@@ -169,6 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         cart.push({ id: itemId, name: name, price: price, quantity: quantity });
                     }
                 }
+
+                // Actualizamos todo al final
                 saveCart();
                 updateCartUI();
                 updateProductCard(box);
@@ -177,8 +204,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // --- INICIALIZACIÓN ---
         // Se dibuja el panel del carrito desde la memoria al cargar la página.
-        updateCartUI(); 
-        
+        updateCartUI();
+
         const checkoutBtn = document.getElementById('checkout-btn');
         if (checkoutBtn) {
             checkoutBtn.onclick = (e) => {
@@ -219,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
             whatsappMessage += `\n*Total a pagar: S/ ${total.toFixed(2)}*\n\nAdjunto mi comprobante de pago para coordinar la entrega. ¡Gracias!`;
             const phoneNumber = '51987654321';
             whatsappBtn.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(whatsappMessage)}`;
-        } else if(summaryContainer) {
+        } else if (summaryContainer) {
             summaryContainer.innerHTML = '<p>No hay productos en tu pedido para mostrar.</p>';
             summaryTotalEl.textContent = 'Total: S/ 0.00';
             whatsappBtn.style.display = 'none';
