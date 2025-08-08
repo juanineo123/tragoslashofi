@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             summaryTotalEl.textContent = `Total: S/ ${total.toFixed(2)}`;
             whatsappMessage += `\n*Total a pagar: S/ ${total.toFixed(2)}*\n\nAdjunto mi comprobante de pago para coordinar la entrega. ¡Gracias!`;
-            const phoneNumber = '51987654321';
+            const phoneNumber = '51956547123';
             whatsappBtn.href = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(whatsappMessage)}`;
         } else if (summaryContainer) {
             summaryContainer.innerHTML = '<p>No hay productos en tu pedido para mostrar.</p>';
